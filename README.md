@@ -6,7 +6,7 @@ It is a reflection of [this](https://www.youtube.com/watch?v=p8d8TKo59LU) tutori
 
 ## TODO
 - [x] Project init
-- [ ] Sprites for player, enemies, gun and bullets
+- [x] Sprites for player, enemies, gun and bullets
 - [ ] Game state
 - [ ] Player system (movement, rendering)
 - [ ] Player gun system (Anchored to player, follows mouse)
