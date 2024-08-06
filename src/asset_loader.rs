@@ -2,6 +2,8 @@ use std::fs::read_to_string;
 
 use bevy::{prelude::*, utils::hashbrown::HashMap};
 
+use crate::schedule::StartupSystemSet;
+
 #[derive(Resource, Debug, Default)]
 pub struct SceneAssets {
     pub texture_atlas: Handle<Image>,
@@ -21,7 +23,7 @@ pub struct AssetLoaderPlugin;
 impl Plugin for AssetLoaderPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<SceneAssets>()
-            .add_systems(Startup, load_assets);
+            .add_systems(Startup, load_assets.in_set(StartupSystemSet::LoadingAssets));
     }
 }
 

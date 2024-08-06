@@ -1,12 +1,12 @@
 use bevy::prelude::*;
 
-use crate::asset_loader::SceneAssets;
+use crate::{asset_loader::SceneAssets, schedule::StartupSystemSet};
 
 pub struct PlayerPlugin;
 
 impl Plugin for PlayerPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(PostStartup, spawn_player);
+        app.add_systems(Startup, spawn_player.in_set(StartupSystemSet::GameInit));
     }
 }
 

@@ -1,5 +1,6 @@
 mod asset_loader;
 mod player;
+mod schedule;
 
 use asset_loader::AssetLoaderPlugin;
 use bevy::{
@@ -7,6 +8,7 @@ use bevy::{
     prelude::*,
 };
 use player::PlayerPlugin;
+use schedule::{SchedulePlugin, StartupSystemSet};
 
 fn main() {
     App::new()
@@ -24,10 +26,11 @@ fn main() {
                 }),
             LogDiagnosticsPlugin::default(),
             FrameTimeDiagnosticsPlugin,
+            SchedulePlugin,
             AssetLoaderPlugin,
             PlayerPlugin,
         ))
-        .add_systems(Startup, setup)
+        .add_systems(Startup, setup.in_set(StartupSystemSet::GameInit))
         .add_systems(Update, close_on_esc)
         .run();
 }
