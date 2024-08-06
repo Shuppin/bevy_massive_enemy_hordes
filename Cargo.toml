@@ -1,0 +1,15 @@
+[package]
+name = "massive_enemy_hordes"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.14.1"
+
+# Enable level 1 optimisations for debug builds
+[profile.dev]
+opt-level = 1
+
+# Enable level 3 optimisations for dependencies (mainly bevy)
+[profile.dev.package."*"]
+opt-level = 3
