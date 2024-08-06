@@ -6,6 +6,11 @@ pub enum StartupSystemSet {
     GameInit,
 }
 
+#[derive(SystemSet, Debug, Hash, PartialEq, Eq, Clone)]
+pub enum UpdateSystemSet {
+    EntityUpdates,
+}
+
 pub struct SchedulePlugin;
 
 impl Plugin for SchedulePlugin {
@@ -13,6 +18,7 @@ impl Plugin for SchedulePlugin {
         app.configure_sets(
             Startup,
             (StartupSystemSet::LoadingAssets, StartupSystemSet::GameInit).chain(),
-        );
+        )
+        .configure_sets(Update, UpdateSystemSet::EntityUpdates);
     }
 }

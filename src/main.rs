@@ -1,4 +1,5 @@
 mod asset_loader;
+mod movement;
 mod player;
 mod schedule;
 mod state;
@@ -8,6 +9,7 @@ use bevy::{
     diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin},
     prelude::*,
 };
+use movement::MovementPlugin;
 use player::PlayerPlugin;
 use schedule::{SchedulePlugin, StartupSystemSet};
 use state::StatePlugin;
@@ -31,6 +33,7 @@ fn main() {
             SchedulePlugin,
             StatePlugin,
             AssetLoaderPlugin,
+            MovementPlugin,
             PlayerPlugin,
         ))
         .add_systems(Startup, setup.in_set(StartupSystemSet::GameInit))
