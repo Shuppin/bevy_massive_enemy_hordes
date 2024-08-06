@@ -1,6 +1,7 @@
 mod asset_loader;
 mod player;
 mod schedule;
+mod state;
 
 use asset_loader::AssetLoaderPlugin;
 use bevy::{
@@ -9,6 +10,7 @@ use bevy::{
 };
 use player::PlayerPlugin;
 use schedule::{SchedulePlugin, StartupSystemSet};
+use state::StatePlugin;
 
 fn main() {
     App::new()
@@ -27,6 +29,7 @@ fn main() {
             LogDiagnosticsPlugin::default(),
             FrameTimeDiagnosticsPlugin,
             SchedulePlugin,
+            StatePlugin,
             AssetLoaderPlugin,
             PlayerPlugin,
         ))
