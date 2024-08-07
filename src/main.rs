@@ -1,4 +1,5 @@
 mod asset_loader;
+mod camera;
 mod gun;
 mod mouse;
 mod movement;
@@ -11,11 +12,12 @@ use bevy::{
     diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin},
     prelude::*,
 };
+use camera::CameraPlugin;
 use gun::GunPlugin;
 use mouse::MousePlugin;
 use movement::MovementPlugin;
 use player::PlayerPlugin;
-use schedule::{SchedulePlugin, StartupSystemSet};
+use schedule::SchedulePlugin;
 use state::StatePlugin;
 
 fn main() {
@@ -37,18 +39,14 @@ fn main() {
             SchedulePlugin,
             StatePlugin,
             AssetLoaderPlugin,
+            CameraPlugin,
             MovementPlugin,
             PlayerPlugin,
             GunPlugin,
             MousePlugin,
         ))
-        .add_systems(Startup, setup.in_set(StartupSystemSet::GameInit))
         .add_systems(Update, close_on_esc)
         .run();
-}
-
-fn setup(mut commands: Commands) {
-    commands.spawn(Camera2dBundle::default());
 }
 
 fn close_on_esc(keyboard: Res<ButtonInput<KeyCode>>, mut exit: EventWriter<AppExit>) {
