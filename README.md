@@ -10,7 +10,7 @@ It is a reflection of [this](https://www.youtube.com/watch?v=p8d8TKo59LU) tutori
 - [x] Game state
 - [x] Player system (movement, rendering)
 - [x] Player gun system (Anchored to player, follows mouse)
-- [ ] Bullet system (gun fires bullets)
+- [x] Bullet system (gun fires bullets)
 - [ ] Map decorations
 - [ ] Enemies (spawning, follow player)
 - [ ] Animations (player/enemy sprite anims)

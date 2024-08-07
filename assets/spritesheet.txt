@@ -368,3 +368,4 @@ tiny_slug_anim_f0 432 376 16 16
 tiny_slug_anim_f1 448 376 16 16
 tiny_slug_anim_f2 464 376 16 16
 tiny_slug_anim_f3 480 376 16 16
+bullet 289 311 4 4
