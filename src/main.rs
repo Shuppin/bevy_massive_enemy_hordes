@@ -1,4 +1,6 @@
 mod asset_loader;
+mod gun;
+mod mouse;
 mod movement;
 mod player;
 mod schedule;
@@ -9,6 +11,8 @@ use bevy::{
     diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin},
     prelude::*,
 };
+use gun::GunPlugin;
+use mouse::MousePlugin;
 use movement::MovementPlugin;
 use player::PlayerPlugin;
 use schedule::{SchedulePlugin, StartupSystemSet};
@@ -35,6 +39,8 @@ fn main() {
             AssetLoaderPlugin,
             MovementPlugin,
             PlayerPlugin,
+            GunPlugin,
+            MousePlugin,
         ))
         .add_systems(Startup, setup.in_set(StartupSystemSet::GameInit))
         .add_systems(Update, close_on_esc)

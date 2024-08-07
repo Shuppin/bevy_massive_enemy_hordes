@@ -18,7 +18,7 @@ impl Plugin for PlayerPlugin {
         app.add_systems(Startup, spawn_player.in_set(StartupSystemSet::GameInit))
             .add_systems(
                 Update,
-                handle_player_movement.in_set(UpdateSystemSet::EntityUpdates),
+                handle_player_movement.in_set(UpdateSystemSet::UserInput),
             );
     }
 }
